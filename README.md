@@ -10,7 +10,10 @@ Run it:
 ```
 ruby parser.rb gas_consumption.csv
 ```
-
+You'll receive something like this:
+```
+{"2022-09"=>"117.7", "2022-10"=>"157.3", "2022-11"=>"225.0"}
+```
 ### Coming soon...
 
 Consumption diagram generation will be added.
