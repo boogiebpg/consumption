@@ -51,7 +51,13 @@ class ConsumptionCalculator
     last_date_with_value = Date.parse(last_two_data_items[1][0])
     first_day_of_next_month = Date.new(last_date_with_value.year, last_date_with_value.month,-1) + 1
     last_day_with_value = Date.parse(last_two_data_items[1][0]).strftime("%d").to_i
-    day_consumption = last_two_data_items[1][1] - last_two_data_items[0][1]
+    if (1..2).include?(last_day_with_value)
+      day_consumption = last_two_data_items[1][1] - last_two_data_items[0][1]
+    else
+      first_day_of_month_consumption_value = data[Date.new(last_date_with_value.year, last_date_with_value.month, 1).strftime("%Y-%m-%d")]
+      days_count = last_day_with_value - 1
+      day_consumption = (last_two_data_items[1][1] - first_day_of_month_consumption_value) / days_count
+    end
     current_consumption = last_two_data_items[1][1]
     day = 0
     loop do
