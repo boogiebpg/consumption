@@ -11,4 +11,4 @@ reader = ConsumptionReader.new(filename)
 available_data = reader.parse_file
 
 calculator = ConsumptionCalculator.new(available_data)
-p calculator.process!
+calculator.process!
